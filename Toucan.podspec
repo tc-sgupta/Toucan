@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'http://twitter.com/gavinbunney'
   s.authors = { 'Gavin Bunney' => 'gavin@bunney.net.au' }
   s.source = { :git => 'https://github.com/gavinbunney/Toucan.git', :tag => s.version }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.2' }
 
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
