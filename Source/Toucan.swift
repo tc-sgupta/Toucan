@@ -197,6 +197,7 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
+    @objc
     public func maskWithImage(maskImage : UIImage)  -> Toucan {
         self.image = Toucan.Mask.maskImageWithImage(self.image, maskImage: maskImage)
         return self
@@ -224,6 +225,7 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
+    @objc
     public func maskWithPath(path: UIBezierPath) -> Toucan {
         self.image = Toucan.Mask.maskImageWithPath(self.image, path: path)
         return self
@@ -236,6 +238,7 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
+    @objc
     public func maskWithPathClosure(path: (_ rect: CGRect) -> (UIBezierPath)) -> Toucan {
         self.image = Toucan.Mask.maskImageWithPathClosure(self.image, pathInRect: path)
         return self
@@ -446,6 +449,7 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
+    @objc
     public func layerWithOverlayImage(_ overlayImage: UIImage, overlayFrame: CGRect) -> Toucan {
         self.image = Toucan.Layer.overlayImage(self.image, overlayImage:overlayImage, overlayFrame:overlayFrame)
         return self
