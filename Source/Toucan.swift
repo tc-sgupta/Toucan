@@ -36,12 +36,11 @@ import CoreGraphics
  let resizedAndMaskedImage = Toucan(withImage: myImage).resize(CGSize(width: 100, height: 150)).maskWithEllipse().image
  */
 
-@objc
 public class Toucan : NSObject {
     
-    @objc public var image : UIImage
+    public var image : UIImage
     
-    @objc public init(image withImage: UIImage) {
+    public init(image withImage: UIImage) {
         self.image = withImage
     }
     
@@ -73,7 +72,6 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc
     public func resizeByClipping(_ size: CGSize) -> Toucan {
         self.image = Toucan.Resize.resizeImage(self.image, size: size, fitMode: .clip)
         return self
@@ -90,7 +88,6 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc
     public func resizeByCropping(_ size: CGSize) -> Toucan {
         self.image = Toucan.Resize.resizeImage(self.image, size: size, fitMode: .crop)
         return self
@@ -106,7 +103,6 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc
     public func resizeByScaling(_ size: CGSize) -> Toucan {
         self.image = Toucan.Resize.resizeImage(self.image, size: size, fitMode: .scale)
         return self
@@ -197,7 +193,6 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc
     public func maskWithImage(maskImage : UIImage)  -> Toucan {
         self.image = Toucan.Mask.maskImageWithImage(self.image, maskImage: maskImage)
         return self
@@ -213,7 +208,7 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc public func maskWithEllipse(borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.white) -> Toucan {
+    public func maskWithEllipse(borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.white) -> Toucan {
         self.image = Toucan.Mask.maskImageWithEllipse(self.image, borderWidth: borderWidth, borderColor: borderColor)
         return self
     }
@@ -225,7 +220,6 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc
     public func maskWithPath(path: UIBezierPath) -> Toucan {
         self.image = Toucan.Mask.maskImageWithPath(self.image, path: path)
         return self
@@ -238,7 +232,6 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc
     public func maskWithPathClosure(path: (_ rect: CGRect) -> (UIBezierPath)) -> Toucan {
         self.image = Toucan.Mask.maskImageWithPathClosure(self.image, pathInRect: path)
         return self
@@ -254,7 +247,7 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc public func maskWithRoundedRect(cornerRadius: CGFloat, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.white) -> Toucan {
+    public func maskWithRoundedRect(cornerRadius: CGFloat, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.white) -> Toucan {
         self.image = Toucan.Mask.maskImageWithRoundedRect(self.image, cornerRadius: cornerRadius, borderWidth: borderWidth, borderColor: borderColor)
         return self
     }
@@ -449,7 +442,6 @@ public class Toucan : NSObject {
      
      - returns: Self, allowing method chaining
      */
-    @objc
     public func layerWithOverlayImage(_ overlayImage: UIImage, overlayFrame: CGRect) -> Toucan {
         self.image = Toucan.Layer.overlayImage(self.image, overlayImage:overlayImage, overlayFrame:overlayFrame)
         return self
