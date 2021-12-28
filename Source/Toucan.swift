@@ -502,22 +502,22 @@ public class Toucan : NSObject {
         static func CGImageWithCorrectOrientation(_ image : UIImage) -> CGImage? {
             guard let cgImage = image.cgImage else { return nil }
 
-            if (image.imageOrientation == UIImageOrientation.up) {
+            if (image.imageOrientation == UIImage.Orientation.up) {
                 return cgImage
             }
             
             var transform : CGAffineTransform = CGAffineTransform.identity;
             
             switch (image.imageOrientation) {
-            case UIImageOrientation.right, UIImageOrientation.rightMirrored:
+            case UIImage.Orientation.right, UIImage.Orientation.rightMirrored:
                 transform = transform.translatedBy(x: 0, y: image.size.height)
                 transform = transform.rotated(by: CGFloat(-1.0 * Double.pi))
                 break
-            case UIImageOrientation.left, UIImageOrientation.leftMirrored:
+            case UIImage.Orientation.left, UIImage.Orientation.leftMirrored:
                 transform = transform.translatedBy(x: image.size.width, y: 0)
                 transform = transform.rotated(by: CGFloat(Double.pi))
                 break
-            case UIImageOrientation.down, UIImageOrientation.downMirrored:
+            case UIImage.Orientation.down, UIImage.Orientation.downMirrored:
                 transform = transform.translatedBy(x: image.size.width, y: image.size.height)
                 transform = transform.rotated(by: CGFloat(Double.pi))
                 break
@@ -526,11 +526,11 @@ public class Toucan : NSObject {
             }
             
             switch (image.imageOrientation) {
-            case UIImageOrientation.rightMirrored, UIImageOrientation.leftMirrored:
+            case UIImage.Orientation.rightMirrored, UIImage.Orientation.leftMirrored:
                 transform = transform.translatedBy(x: image.size.height, y: 0);
                 transform = transform.scaledBy(x: -1, y: 1);
                 break
-            case UIImageOrientation.downMirrored, UIImageOrientation.upMirrored:
+            case UIImage.Orientation.downMirrored, UIImage.Orientation.upMirrored:
                 transform = transform.translatedBy(x: image.size.width, y: 0);
                 transform = transform.scaledBy(x: -1, y: 1);
                 break
@@ -542,8 +542,8 @@ public class Toucan : NSObject {
             let contextHeight : Int
             
             switch (image.imageOrientation) {
-            case UIImageOrientation.left, UIImageOrientation.leftMirrored,
-                 UIImageOrientation.right, UIImageOrientation.rightMirrored:
+            case UIImage.Orientation.left, UIImage.Orientation.leftMirrored,
+                UIImage.Orientation.right, UIImage.Orientation.rightMirrored:
                 contextWidth = cgImage.height
                 contextHeight = cgImage.width
                 break
